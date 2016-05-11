@@ -2,7 +2,7 @@
 /*
 	Plugin Name: OI Bowtie
 	Description: This is for updating your Wordpress plugin.
-	Version: 0.9.0
+	Version: 1.0.2
 	Author: Langone Saul
 	Author URI: http://www.onlineimage.com
  	License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
