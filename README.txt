@@ -1,7 +1,7 @@
 === Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
+Contributors: Langone, Saul, Paul
 Donate link: http://onlineimage.com
-Tags: comments, spam
+Tags: standard routines for wordpress
 Requires at least: 3.0.1
 Tested up to: 3.4
 Stable tag: 4.3
