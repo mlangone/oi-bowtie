@@ -107,7 +107,7 @@ class Bowtie_Updater {
 	public function plugin_popup( $result, $action, $args ) {
 
 		if( ! empty( $args->slug ) ) { // If there is a slug
-			
+			// this line may throw an error
 			if( $args->slug == explode('/' , $this->basename)[0] ) { // And it's our slug
 
 				$this->get_repository_info(); // Get our repo info
@@ -117,11 +117,11 @@ class Bowtie_Updater {
 					'name'				=> $this->plugin["Name"],
 					'slug'				=> $this->basename,
 					'requires'					=> '3.3',
-					'tested'						=> '4.4.1',
+					'tested'						=> '4.5.1',
 					'rating'						=> '100.0',
-					'num_ratings'				=> '10823',
-					'downloaded'				=> '14249',
-					'added'							=> '2016-01-05',
+					'num_ratings'				=> '5',
+					'downloaded'				=> '5',
+					'added'							=> '2016-05-11',
 					'version'			=> $this->github_response['tag_name'],
 					'author'			=> $this->plugin["AuthorName"],
 					'author_profile'	=> $this->plugin["AuthorURI"],
