@@ -49,9 +49,9 @@ e.g.
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Who can I thank for this =
 
-An answer to that question.
+The hard working men and woman at OnlineImage
 
 = What about foo bar? =
 
