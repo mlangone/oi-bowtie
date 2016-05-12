@@ -96,10 +96,21 @@ class Oi_Bowtie {
 	 */
 	private function load_dependencies() {
 
+	
 		/**
-		 * The file responsible for oi seo meta information.
+		 * The file responsible for SEO META INFORMATION.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-seo.php';
+
+		/**
+		 * The file responsible for HEADER SNIPPETS.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-headerSnippets.php';
+
+		/**
+		 * The file responsible for STRUCTURED DATA.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-structuredData.php';
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the

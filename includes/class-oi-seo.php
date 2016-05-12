@@ -26,19 +26,35 @@ function tes_mb_function($post) {
     //retrieve the metadata values if they exist
     $tes_meta_title = get_post_meta( $post->ID, '_tes_meta_title', true );
     $tes_meta_description = get_post_meta( $post->ID, '_tes_meta_description', true );
- 
+    $tes_meta_canonical = get_post_meta( $post->ID, '_tes_meta_canonical', true ); 
     // Add an nonce field so we can check for it later when validating
     wp_nonce_field( 'tes_inner_custom_box', 'tes_inner_custom_box_nonce' );
  
     echo '<div style="margin: 10px 100px; text-align: center">
     <table>
         <tr>
-            <td><strong>Title Tag:</strong></td><td>
-            <input style="padding: 6px 4px; width: 300px" type="text" name="tes_meta_title" value="' . esc_attr($tes_meta_title) . '" />
+            <td>
+                <strong>Title Tag:</strong>
+            </td>
+            <td>
+                <input style="padding: 6px 4px; width: 300px" type="text" name="tes_meta_title" value="' . esc_attr($tes_meta_title) . '" />
             </td>
         </tr>
         <tr>
-            <td><strong>Meta Description:</strong></td><td>           <textarea  rows="3" cols="50" name="tes_meta_description">' . esc_attr($tes_meta_description) . '</textarea></td>
+            <td>
+                <strong>Meta Description:</strong>
+            </td>
+            <td>
+                <textarea  rows="3" cols="50" name="tes_meta_description">' . esc_attr($tes_meta_description) . '</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Canonical Link:</strong>
+            </td>  
+            <td>
+                <input style="padding: 6px 4px; width: 300px" type="text" name="tes_meta_canonical" value="' . esc_attr($tes_meta_canonical) . '" />
+            </td>
         </tr>
     </table>
 </div>';
@@ -81,14 +97,18 @@ function tes_mb_save_data($post_id) {
     // If old entries exist, retrieve them
     $old_title = get_post_meta( $post_id, '_tes_meta_title', true );
     $old_description = get_post_meta( $post_id, '_tes_meta_description', true );
- 
+    $old_canonical = get_post_meta( $post_id, '_tes_meta_canonical', true ); 
+
     // Sanitize user input.
     $title = sanitize_text_field( $_POST['tes_meta_title'] );
     $description = sanitize_text_field( $_POST['tes_meta_description'] );
- 
+    $canonical =  sanitize_text_field( $_POST['tes_meta_canonical'] );
+
     // Update the meta field in the database.
     update_post_meta( $post_id, '_tes_meta_title', $title, $old_title );
     update_post_meta( $post_id, '_tes_meta_description', $description, $old_description );
+    update_post_meta( $post_id, '_tes_meta_canonical', $canonical, $old_canonical );
+	
 }
 add_action( 'save_post', 'tes_mb_save_data' );
 add_filter( 'wp_title', 'ml_display_title', 20, 2 );
@@ -99,10 +119,12 @@ function tes_mb_display() {
     // retrieve the metadata values if they exist
     $tes_meta_title = get_post_meta( $post->ID, '_tes_meta_title', true );
     $tes_meta_description = get_post_meta( $post->ID, '_tes_meta_description', true );
+    $tes_meta_canonical = get_post_meta( $post->ID, '_tes_meta_canonical', true );
 // Echo out what we are doing 
 echo '<!-- OI Seo Meta -->
 <meta name="title" content="' . $tes_meta_title . '" />
 <meta name="description" content="' . $tes_meta_description . '" />
+<link rel="canonical" href="' . $tes_meta_canonical . '" />
 <meta property="og:title" content="' . $tes_meta_title . '" />
 <meta property="og:description" content="' . $tes_meta_description . '" />
 <!-- /OI SEO -->
