@@ -131,3 +131,13 @@ echo '<!-- OI Seo Meta -->
     ';
 }
 add_action( 'wp_head', 'tes_mb_display', 2 );
+
+
+// Only used for enterprise level clients
+function local_sanitize_text_field ( $text ) {
+	$text = str_replace( array("<!--", "-->"), array("lt&!--", "--&gt;"), $text);
+	$text = sanitize_text_field( $text );
+	$text = str_replace( array("lt&!--", "--&gt;"), array("<!--", "-->"), $text);
+	
+	return $text;
+}
