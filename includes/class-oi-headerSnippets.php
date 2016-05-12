@@ -15,7 +15,7 @@ function before_head_get_meta( $value ) {
 function before_head_add_meta_box() {
 	add_meta_box(
 		'before_head-before-head',
-		__( 'Before Head', 'before_head' ),
+		__( 'Header Code', 'before_head' ),
 		'before_head_html',
 		'post',
 		'normal',
@@ -23,7 +23,7 @@ function before_head_add_meta_box() {
 	);
 	add_meta_box(
 		'before_head-before-head',
-		__( 'Before Head', 'before_head' ),
+		__( 'Header Code', 'before_head' ),
 		'before_head_html',
 		'page',
 		'normal',
@@ -35,11 +35,9 @@ add_action( 'add_meta_boxes', 'before_head_add_meta_box' );
 function before_head_html( $post) {
 	wp_nonce_field( '_before_head_nonce', 'before_head_nonce' ); ?>
 
-	<p>Before Closing Head Tag</p>
-
 	<p>
-		<label for="before_head_headercode"><?php _e( 'headercode', 'before_head' ); ?></label><br>
-		<textarea name="before_head_headercode" id="before_head_headercode" ><?php echo before_head_get_meta( 'before_head_headercode' ); ?></textarea>
+		<label for="before_head_headercode"><?php _e( 'Insert code before the closing HEAD tag', 'before_head' ); ?></label><br>
+		<textarea name="before_head_headercode" style="width:41%; min-height:115px; margin-top:15px" id="before_head_headercode" ><?php echo before_head_get_meta( 'before_head_headercode' ); ?></textarea>
 	
 	</p><?php
 }

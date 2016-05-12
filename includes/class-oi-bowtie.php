@@ -108,6 +108,11 @@ class Oi_Bowtie {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-headerSnippets.php';
 
 		/**
+		 * The file responsible for FOOTER SNIPPETS.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-footerSnippets.php';
+
+		/**
 		 * The file responsible for STRUCTURED DATA.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-structuredData.php';

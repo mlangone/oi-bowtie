@@ -30,14 +30,14 @@ function tes_mb_function($post) {
     // Add an nonce field so we can check for it later when validating
     wp_nonce_field( 'tes_inner_custom_box', 'tes_inner_custom_box_nonce' );
  
-    echo '<div style="margin: 10px 100px; text-align: center">
+    echo '<div style="margin: 10px 100px 10px 0px; text-align: left">
     <table>
         <tr>
             <td>
                 <strong>Title Tag:</strong>
             </td>
             <td>
-                <input style="padding: 6px 4px; width: 300px" type="text" name="tes_meta_title" value="' . esc_attr($tes_meta_title) . '" />
+                <input style="padding: 6px 4px; width: 100%" type="text" name="tes_meta_title" value="' . esc_attr($tes_meta_title) . '" />
             </td>
         </tr>
         <tr>
@@ -53,7 +53,7 @@ function tes_mb_function($post) {
                 <strong>Canonical Link:</strong>
             </td>  
             <td>
-                <input style="padding: 6px 4px; width: 300px" type="text" name="tes_meta_canonical" value="' . esc_attr($tes_meta_canonical) . '" />
+                <input style="padding: 6px 4px; width: 100%" type="text" name="tes_meta_canonical" value="' . esc_attr($tes_meta_canonical) . '" />
             </td>
         </tr>
     </table>
