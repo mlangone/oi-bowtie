@@ -100,22 +100,22 @@ class Oi_Bowtie {
 		/**
 		 * The file responsible for SEO META INFORMATION.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-seo.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-bowtie-seo.php';
 
 		/**
 		 * The file responsible for HEADER SNIPPETS.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-headerSnippets.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-bowtie-headerSnippets.php';
 
 		/**
 		 * The file responsible for FOOTER SNIPPETS.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-footerSnippets.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-bowtie-footerSnippets.php';
 
 		/**
 		 * The file responsible for STRUCTURED DATA.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-structuredData.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-bowtie-structuredData.php';
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
@@ -174,6 +174,16 @@ class Oi_Bowtie {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+		// Add menu item
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_menu' );
+		
+		// Add Settings link to the plugin
+		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_name . '.php' );
+		$this->loader->add_filter( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_action_links' );
+		
+// Save/Update our plugin options
+$this->loader->add_action('admin_init', $plugin_admin, 'options_update');		
 
 	}
 
