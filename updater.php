@@ -117,7 +117,7 @@ class Bowtie_Updater {
 					'name'				=> $this->plugin["Name"],
 					'slug'				=> $this->basename,
 					'requires'					=> '3.3',
-					'tested'						=> '4.5.5',
+					'tested'						=> '4.5.2',
 					'rating'						=> '100.0',
 					'num_ratings'				=> '5',
 					'downloaded'				=> '5',

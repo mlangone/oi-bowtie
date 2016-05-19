@@ -96,22 +96,25 @@ class Oi_Bowtie {
 	 */
 	private function load_dependencies() {
 
-	
+	$this->oi_bowtie_options = get_option($this->plugin_name);
 		/**
 		 * The file responsible for SEO META INFORMATION.
 		 */
+	if($this->oi_bowtie_options['oi_seo']){	 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-bowtie-seo.php';
-
+	}
 		/**
 		 * The file responsible for HEADER SNIPPETS.
 		 */
+	if($this->oi_bowtie_options['header_snippets']){	 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-bowtie-headerSnippets.php';
-
+	}
 		/**
 		 * The file responsible for FOOTER SNIPPETS.
 		 */
+	if($this->oi_bowtie_options['footer_snippets']){	 	 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-oi-bowtie-footerSnippets.php';
-
+	}
 		/**
 		 * The file responsible for STRUCTURED DATA.
 		 */

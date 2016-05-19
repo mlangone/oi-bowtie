@@ -157,9 +157,10 @@ public function validate($input) {
     $valid = array();
 
     //Cleanup
-    $valid['seo'] = (isset($input['seo']) && !empty($input['seo'])) ? 1 : 0;
-    $valid['headerSnippets'] = (isset($input['headerSnippets']) && !empty($input['headerSnippets'])) ? 1: 0;
-    $valid['footerSnippets'] = (isset($input['footerSnippets']) && !empty($input['footerSnippets'])) ? 1 : 0;  
+    $valid['oi_seo'] = (isset($input['oi_seo']) && !empty($input['oi_seo'])) ? 1 : 0;
+    $valid['header_snippets'] = (isset($input['header_snippets']) && !empty($input['header_snippets'])) ? 1: 0;
+    $valid['footer_snippets'] = (isset($input['footer_snippets']) && !empty($input['footer_snippets'])) ? 1 : 0;
+    
     return $valid;
  }
 
